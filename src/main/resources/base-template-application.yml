@@ -1,0 +1,55 @@
+server:
+  port: YOUR_PORT
+
+spring:
+  application:
+    name: RuralConnect
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/transaction_fraud_detection
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root254
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+
+  jwt:
+    expiration: 3600000
+
+  logging:
+    level:
+      liquibase: DEBUG
+      root: INFO
+      org:
+        hibernate:
+          SQL: DEBUG
+          type:
+            descriptor:
+              sql: TRACE
+        springframework:
+          security: DEBUG
+  springdoc:
+    api-docs:
+      enabled: true
+    swagger-ui:
+      path: /swagger-ui.html
+
+  redis:
+    host: localhost
+    port: 6379
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
